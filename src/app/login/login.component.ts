@@ -6,11 +6,12 @@ import { Component } from '@angular/core';
   styleUrls: ['./login.component.scss']
 })
 export class LoginComponent {
-  email: string = '';
-  emailPattern: RegExp = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
-  password: string = '';
-  showPassword: boolean = false;
-  rememberMe: boolean = false;
+  email = '';
+  emailPattern = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
+  password = '';
+  showPassword = false;
+  rememberMe = false;
+  //removed "string" from the variable declarations
 
   constructor() { }
 

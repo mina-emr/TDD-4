@@ -8,18 +8,19 @@ import { NgForm } from '@angular/forms';
   styleUrls: ['./signup.component.scss']
 })
 export class SignupComponent implements OnInit {
-  email: string = '';
-  emailPattern: RegExp = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
-  password: string = '';
-  confirmPassword: string = '';
-  rememberMe: boolean = false;
-  company: string = '';
-  street: string = '';
-  city: string = '';
-  postalCode: string = '';
-  postalCodePattern: RegExp = /^[0-9]{4}$/;
-  showError: boolean = false;
-  errorMessages: string[] = [];
+  email = '';
+  emailPattern = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
+  password = '';
+  confirmPassword = '';
+  rememberMe = false;
+  company = '';
+  street = '';
+  city = '';
+  postalCode = '';
+  postalCodePattern = /^[0-9]{4}$/;
+  showError = false;
+  errorMessages = [];
+  //removed "string" from the variable declarations
 
   constructor() { }
 
@@ -59,8 +60,6 @@ export class SignupComponent implements OnInit {
   
       console.error(this.errorMessages);
     }
-  
-  
   }
 
   togglePasswordVisibility(): void {
