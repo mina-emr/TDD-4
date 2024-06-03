@@ -1,0 +1,80 @@
+<div class="container logincontainer">
+  <h1>Registration</h1>
+  <p>Please enter your email address and password.</p>
+  <form (ngSubmit)="register($event)">
+    <div class="form-group">
+      <label for="email">Email Address*:</label>
+      <input type="email" id="email" name="email" required [(ngModel)]="email" class="form-control">
+    </div>
+    <div class="form-group">
+      <label for="password">Password*:</label>
+      <input type="password" id="password" name="password" required [(ngModel)]="password" class="form-control">
+    </div>
+    <div class="form-group">
+      <label for="confirmPassword">Confirm Password*:</label>
+      <input type="password" id="confirmPassword" name="confirmPassword" required [(ngModel)]="confirmPassword" class="form-control">
+    </div>
+    <button type="button" (click)="togglePasswordVisibility()" class="btn visibility btn-secondary">Show/Hide Password</button>
+    <div class="form-group">
+      <label for="company">Company:</label>
+      <input type="text" id="company" name="company" [(ngModel)]="company" class="form-control" placeholder="FH Technikum Wien" disabled>
+    </div>
+
+    <h3>Address</h3>
+
+    <div class="form-group">
+      <label for="street">Street:</label>
+      <textarea type="text" rows="1" id="street" name="street" required [(ngModel)]="street" class="form-control"></textarea>
+    </div>
+    <div class="form-group">
+      <label for="city">City:</label>
+      <input type="text" id="city" name="city" required [(ngModel)]="city" class="form-control">
+    </div>
+    <div class="form-group">
+      <label for="postalCode">Postal Code:</label>
+      <input type="text" id="postalCode" name="postalCode" required [(ngModel)]="postalCode" class="form-control">
+    </div>
+    <div id="errordiv" class="alert alert-danger" *ngIf="showError">
+      <ul>
+        <li *ngFor="let errorMessage of errorMessages">{{ errorMessage }}</li>
+      </ul>
+    </div>
+    
+
+    <p>*Required fields.</p>
+    <button type="submit" class="btn btn-primary">Register</button>
+  </form>
+
+  <!-- Span elements to display the values -->
+  <div class="checkcontainer">
+    <h2>Input Validation:</h2>
+    <hr>
+    <div>
+      <span>Email: {{ email }}</span>
+    </div>
+    <div>
+      <span>Password: {{ password }}</span>
+    </div>
+    <div>
+      <span>Confirmed Password: {{ confirmPassword }}</span>
+    </div>
+    <div>
+      <span>Stay logged in: {{ rememberMe }}</span>
+    </div>
+    <div>
+      <span>Company: {{ company }}</span>
+    </div>
+    <div>
+      <span>Street: {{ street }}</span>
+    </div>
+    <div>
+      <span>City: {{ city }}</span>
+    </div>
+    <div>
+      <span>Postal Code: {{ postalCode }}</span>
+    </div>
+  </div>
+  <div class="text-center">
+    <img src="../assets/img/miau.JPG" alt="Miau" class="img-fluid rounded" width="200px"> <!-- Image from the assets folder -->
+  </div>
+</div>

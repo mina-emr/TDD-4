@@ -1,0 +1,145 @@
+{
+    "openapi": "3.0.0",
+    "info": {
+      "title": "Highscore-Listen Applikation",
+      "version": "1.0.0",
+      "description": "API für Registrierung, Login und Highscore-Listen"
+    },
+    "paths": {
+      "/register": {
+        "post": {
+          "summary": "Registrierung eines neuen Nutzers",
+          "requestBody": {
+            "required": true,
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "email": {
+                      "type": "string",
+                      "format": "email"
+                    },
+                    "password": {
+                      "type": "string",
+                      "minLength": 8
+                    },
+                    "confirmPassword": {
+                      "type": "string",
+                      "minLength": 8
+                    },
+                    "company": {
+                      "type": "string",
+                      "example": "FH Technikum Wien",
+                      "readOnly": true
+                    },
+                    "address": {
+                      "type": "object",
+                      "properties": {
+                        "street": {
+                          "type": "string"
+                        },
+                        "city": {
+                          "type": "string"
+                        },
+                        "postalCode": {
+                          "type": "string",
+                          "pattern": "^[0-9]+$"
+                        }
+                      },
+                      "required": ["street", "city", "postalCode"]
+                    }
+                  },
+                  "required": ["email", "password", "confirmPassword", "address"]
+                }
+              }
+            }
+          },
+          "responses": {
+            "200": {
+              "description": "Nutzer erfolgreich registriert"
+            },
+            "400": {
+              "description": "Ungültige Eingabedaten"
+            }
+          }
+        }
+      },
+      "/login": {
+        "post": {
+          "summary": "Login eines bestehenden Nutzers",
+          "requestBody": {
+            "required": true,
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "email": {
+                      "type": "string",
+                      "format": "email"
+                    },
+                    "password": {
+                      "type": "string"
+                    }
+                  },
+                  "required": ["email", "password"]
+                }
+              }
+            }
+          },
+          "responses": {
+            "200": {
+              "description": "Login erfolgreich"
+            },
+            "401": {
+              "description": "Ungültige Anmeldedaten"
+            }
+          }
+        }
+      },
+      "/highscores": {
+        "get": {
+          "summary": "Abrufen der Highscore-Liste",
+          "responses": {
+            "200": {
+              "description": "Highscore-Liste erfolgreich abgerufen",
+              "content": {
+                "application/json": {
+                  "schema": {
+                    "type": "array",
+                    "items": {
+                      "type": "object",
+                      "properties": {
+                        "username": {
+                          "type": "string"
+                        },
+                        "score": {
+                          "type": "integer"
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            },
+            "401": {
+              "description": "Nicht autorisiert"
+            }
+          },
+          "security": [{
+            "bearerAuth": []
+          }]
+        }
+      }
+    },
+    "components": {
+      "securitySchemes": {
+        "bearerAuth": {
+          "type": "http",
+          "scheme": "bearer"
+        }
+      }
+    }
+  }
+  

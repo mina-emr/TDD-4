@@ -1,0 +1,51 @@
+.btn {
+    display: inline-block;
+    padding: 10px 20px;
+    background-color: #b38c6f; /* changed from #99b1ca */
+    color: #5a3d2e; /* changed from #435b72 */
+    font-weight: 700;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+
+    &:hover {
+        background-color: #6d4f3e; /* changed from #346da9 */
+        color: #fff;
+    }
+}
+
+h1 {
+    color: #7a5c4a; /* changed from #4f7191 */
+    font-weight: 700;
+}
+
+h2 {
+    color: #ffffff;
+    font-size: 25px;
+    font-weight: 600;
+}
+
+hr {
+    border: 0;
+    margin-top: 1px;
+    border-top: 2px solid #ffffff;
+}
+
+.logincontainer {
+    height: 100%;
+    background-color: #fff;
+    border: #7a5c4a; /* changed from #4f7191 */
+    border-radius: 5px;
+    border-width: 2px;
+    padding: 20px;
+    margin-top: 50px;
+    margin-bottom: 50px;
+}
+
+.checkcontainer {
+    margin: 20px;
+    background-color: #a89d95; /* changed from #9ea5ad */
+    border-radius: 5px;
+    padding: 10px;
+    color: #ffffff;
+}
